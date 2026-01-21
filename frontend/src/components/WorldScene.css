@@ -1,0 +1,249 @@
+.world-scene-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+}
+
+.exit-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #f4e4c1, #d4c4a0);
+  border: 3px solid #8b7355;
+  color: #3d2817;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-button:hover {
+  background: linear-gradient(to bottom, #e5d5b2, #c5b491);
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.exit-button:active {
+  transform: scale(0.95);
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.instructions-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(244, 228, 193, 0.9);
+  padding: 15px 25px;
+  border-radius: 8px;
+  border: 2px solid #8b7355;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-family: 'Georgia', serif;
+}
+
+.instructions-panel p {
+  margin: 5px 0;
+  color: #3d2817;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.instructions-panel p:first-child {
+  margin-top: 0;
+}
+
+.instructions-panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* Score HUD */
+.score-hud {
+  position: absolute;
+  top: 20px;
+  right: 90px;
+  background: linear-gradient(to bottom, #f4e4c1, #d4c4a0);
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 3px solid #8b7355;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  font-family: 'Georgia', serif;
+  color: #3d2817;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Objectives Panel */
+.objectives-panel {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background: rgba(244, 228, 193, 0.95);
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 3px solid #8b7355;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-family: 'Georgia', serif;
+  max-width: 300px;
+  min-width: 250px;
+}
+
+.objectives-panel h3 {
+  margin: 0 0 12px 0;
+  color: #3d2817;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #8b7355;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.objective {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  border: 1px solid #c5b491;
+  transition: all 0.2s ease;
+}
+
+.objective:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateX(-3px);
+}
+
+.objective.completed {
+  opacity: 0.7;
+  background: rgba(144, 238, 144, 0.3);
+  border-color: #6b8e23;
+}
+
+.objective-text {
+  color: #3d2817;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.objective-progress {
+  color: #6b8e23;
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 0.85rem;
+}
+
+.objective-time {
+  color: #d4af37;
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 0.85rem;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .exit-button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .score-hud {
+    top: 15px;
+    right: 75px;
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+
+  .objectives-panel {
+    top: 70px;
+    right: 15px;
+    max-width: 250px;
+    min-width: 200px;
+    padding: 12px 15px;
+  }
+
+  .objectives-panel h3 {
+    font-size: 1rem;
+  }
+
+  .objective-text {
+    font-size: 0.85rem;
+  }
+
+  .instructions-panel {
+    bottom: 15px;
+    left: 15px;
+    padding: 12px 20px;
+  }
+
+  .instructions-panel p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exit-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .score-hud {
+    top: 10px;
+    right: 60px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .objectives-panel {
+    top: 60px;
+    right: 10px;
+    max-width: 200px;
+    min-width: 180px;
+    padding: 10px 12px;
+  }
+
+  .instructions-panel {
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 15px;
+  }
+
+  .instructions-panel p {
+    font-size: 0.75rem;
+    margin: 3px 0;
+  }
+}

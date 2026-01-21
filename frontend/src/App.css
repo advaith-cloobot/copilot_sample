@@ -278,6 +278,186 @@
   }
 }
 
+/* Edit Banner */
+.edit-banner {
+  background: linear-gradient(to right, #d4af37, #f4e4c1);
+  color: #3d2817;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #8b7355;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Worlds Section */
+.worlds-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 60px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.worlds-title {
+  font-size: 2.5rem;
+  color: #f4e4c1;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1.5px;
+}
+
+.worlds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* World Card */
+.world-card {
+  background: linear-gradient(to bottom, #f4e4c1, #e8d4a8);
+  border: 3px solid #8b7355;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.world-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.world-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #8b7355;
+  padding-bottom: 10px;
+}
+
+.world-card-title {
+  font-size: 1.5rem;
+  color: #3d2817;
+  margin: 0;
+  font-weight: bold;
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.world-card-date {
+  font-size: 0.85rem;
+  color: #6b5541;
+  font-style: italic;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.world-card-description {
+  color: #3d2817;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 12px 0;
+  min-height: 60px;
+}
+
+.world-card-stats {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  border: 1px solid #c5b491;
+}
+
+.world-stat {
+  font-size: 0.9rem;
+  color: #3d2817;
+  font-weight: bold;
+}
+
+.world-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.world-button {
+  flex: 1;
+  min-width: 80px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.world-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.world-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.world-button-play {
+  background: linear-gradient(to bottom, #6b8e23, #556b2f);
+  color: white;
+}
+
+.world-button-play:hover {
+  background: linear-gradient(to bottom, #7ba428, #6b8e23);
+}
+
+.world-button-edit {
+  background: linear-gradient(to bottom, #d4af37, #b8941f);
+  color: #3d2817;
+}
+
+.world-button-edit:hover {
+  background: linear-gradient(to bottom, #e5c045, #d4af37);
+}
+
+.world-button-delete {
+  background: linear-gradient(to bottom, #c44536, #a83428);
+  color: white;
+}
+
+.world-button-delete:hover {
+  background: linear-gradient(to bottom, #d44f3f, #c44536);
+}
+
+.world-status {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #c5b491;
+  border-radius: 6px;
+  color: #6b5541;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .scroll-title {
@@ -296,6 +476,20 @@
   .input-section {
     padding: 20px;
   }
+
+  .worlds-title {
+    font-size: 2rem;
+  }
+
+  .worlds-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .world-card-title {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -305,5 +499,17 @@
   
   .scroll {
     padding: 20px 30px;
+  }
+
+  .worlds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .world-card-actions {
+    flex-direction: column;
+  }
+
+  .world-button {
+    width: 100%;
   }
 }
