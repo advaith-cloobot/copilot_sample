@@ -1,38 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 40px 20px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Vintage Scroll Container */
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  perspective: 1000px;
+}
+
+.scroll {
+  position: relative;
+  background: linear-gradient(to bottom, 
+    #f4e4c1 0%, 
+    #e8d4a8 10%, 
+    #f0ddb0 50%, 
+    #e8d4a8 90%, 
+    #d4c4a0 100%);
+  padding: 40px 60px;
+  border-radius: 8px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid #8b7355;
+  max-width: 800px;
+  transform: rotateX(2deg);
+  animation: unfurl 1s ease-out;
+}
+
+/* Scroll curled edges effect using pseudo-elements */
+.scroll::before,
+.scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to right, 
+    rgba(139, 115, 85, 0.3), 
+    transparent);
+  border-radius: 8px 0 0 8px;
+}
+
+.scroll::before {
+  left: 0;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll::after {
+  right: 0;
+  background: linear-gradient(to left, 
+    rgba(139, 115, 85, 0.3), 
+    transparent);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-title {
+  font-size: 3rem;
+  color: #3d2817;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Georgia', 'Palatino', serif;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes unfurl {
+  0% {
+    transform: rotateX(90deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(2deg) scale(1);
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Content Container */
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+/* Toggle Button */
+.toggle-button {
+  background: linear-gradient(to bottom, #d4af37, #c5a028);
+  color: #1a1a2e;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 18px 40px;
+  border: 3px solid #8b7355;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 
+    0 6px 20px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
 }
 
-@keyframes App-logo-spin {
+.toggle-button:hover {
+  background: linear-gradient(to bottom, #e5c147, #d4af37);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(212, 175, 55, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 15px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Input Section */
+.input-section {
+  width: 100%;
+  background: rgba(244, 228, 193, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid #8b7355;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #3d2817;
+  margin-bottom: 8px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.world-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #8b7355;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a2e;
+  font-family: 'Georgia', serif;
+  transition: all 0.3s ease;
+}
+
+.world-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.world-input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.world-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+}
+
+/* Create Button */
+.create-button {
+  width: 100%;
+  background: linear-gradient(to bottom, #228b22, #1a6b1a);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 16px 30px;
+  border: 3px solid #0f4d0f;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 
+    0 6px 20px rgba(34, 139, 34, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.create-button:hover:not(:disabled) {
+  background: linear-gradient(to bottom, #2fa52f, #228b22);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(34, 139, 34, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.create-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 15px rgba(34, 139, 34, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.create-button:disabled {
+  background: linear-gradient(to bottom, #666, #555);
+  cursor: not-allowed;
+  border-color: #444;
+  opacity: 0.7;
+}
+
+/* Message Display */
+.message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scroll-title {
+    font-size: 2rem;
+  }
+  
+  .scroll {
+    padding: 30px 40px;
+  }
+  
+  .toggle-button {
+    font-size: 1rem;
+    padding: 14px 30px;
+  }
+  
+  .input-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-title {
+    font-size: 1.5rem;
+  }
+  
+  .scroll {
+    padding: 20px 30px;
   }
 }
