@@ -414,14 +414,6 @@ function CameraController({ target }) {
       // Set the target (what camera looks at) to character position
       controlsRef.current.target.set(pos.x, pos.y + 1, pos.z);
       
-      // Position camera behind and above the character
-      const cameraOffset = { x: 0, y: 4, z: 8 }; // Behind and above
-      camera.position.set(
-        pos.x + cameraOffset.x,
-        pos.y + cameraOffset.y,
-        pos.z + cameraOffset.z
-      );
-      
       controlsRef.current.update();
     }
   });
@@ -436,6 +428,13 @@ function CameraController({ target }) {
       maxPolarAngle={Math.PI / 2.2}
       minPolarAngle={Math.PI / 6}
       enablePan={false}
+      enableRotate={true}
+      rotateSpeed={0.5}
+      mouseButtons={{
+        LEFT: 0,  // Rotate camera
+        MIDDLE: 1,
+        RIGHT: 2
+      }}
     />
   );
 }
